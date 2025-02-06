@@ -3,57 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Dropshipping Fair</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for better font styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
 </head>
-<body class="flex flex-col pt-16 gap-6 h-screen w-screen">
-    <h1 class="text-5xl font-black text-center">Dropshiping fair</h1>
-    <h2 class="text-xl font-semibold text-gray-400 text-center">Season 2</h2>
+<body class="bg-black text-white font-sans h-auto min-h-screen overflow-y-auto relative">
 
-    <p class="text-4xl font-black text-center">Come, Build,<br> Sell, and Earn</p>
-    <p class="text-lg text-center">Join us for an inspiring journey into <br> the world of dropshipping.</p>
-
-    <div class="flex items-center justify-center ">
-    <button class="bg-white text-black text-lg font-black px-8 py-3 rounded-full w-fit  ">REGISTER</button>
+    <!-- Background Lights -->
+    <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-1/4 left-1/3 w-72 h-72 bg-purple-500 opacity-30 rounded-full filter blur-3xl animate-pulse" aria-hidden="true"></div>
+        <div class="absolute top-2/3 right-1/4 w-72 h-72 bg-blue-500 opacity-30 rounded-full filter blur-3xl animate-pulse delay-200" aria-hidden="true"></div>
+        <div class="absolute bottom-1/4 left-1/4 w-80 h-80 bg-pink-500 opacity-30 rounded-full filter blur-3xl animate-pulse delay-500" aria-hidden="true"></div>
     </div>
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Dropshipping Fair</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <div class="container">
-            
-            <div class="grid">
-                <div class="card">
-                    <h2>Come</h2>
-                    <p>Join our vibrant community of entrepreneurs</p>
-                </div>
-                <div class="card">
-                    <h2>Build</h2>
-                    <p>Create your unique dropshipping business</p>
-                </div>
-                <div class="card">
-                    <h2>Sell</h2>
-                    <p>Connect with customers and grow your sales</p>
-                </div>
-                <div class="card">
-                    <h2>Earn</h2>
-                    <p>Achieve financial freedom through dropshipping</p>
-                </div>
+    <div class="flex flex-col items-center justify-center px-6 relative z-10 min-h-screen h-auto py-20">
+
+        <!-- Main Heading -->
+        <h1 class="text-5xl font-extrabold text-white mb-6 animate-fadeIn opacity-100 font-poppins">
+            DROPSHIPPING FAIR
+        </h1>
+
+        <!-- Season Tagline -->
+        <h2 class="text-3xl font-semibold text-gray-500 mb-6 animate-fadeIn delay-150 opacity-100 font-poppins">
+            Season 2
+        </h2>
+
+        <!-- Subheading -->
+        <p class="text-2xl text-white-40 mb-8 animate-fadeIn delay-300 opacity-100 font font-extrabold font-poppins">
+            Come, Build, Sell and Earn
+        </p>
+
+        <!-- Register Button -->
+        <button onclick="openModal()" class="bg-white hover:bg-gray-300 text-black font-black px-10 py-4 rounded-full text-lg mt-6 mb-12 transition transform hover:scale-110 hover:shadow-xl hover:text-red-700">
+            Register Now
+        </button>
+
+        <!-- Grid Section -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl animate-fadeIn delay-500 opacity-100">
+            <div class="card">
+                <h2>Come</h2>
+                <p>Join our vibrant community of entrepreneurs</p>
             </div>
-            <footer>
-                <p>© 2025 Dropshipping Fair. All rights reserved.</p>
-            </footer>
+            <div class="card">
+                <h2>Build</h2>
+                <p>Create your unique dropshipping business</p>
+            </div>
+            <div class="card">
+                <h2>Sell</h2>
+                <p>Connect with customers and grow your sales</p>
+            </div>
+            <div class="card">
+                <h2>Earn</h2>
+                <p>Achieve financial freedom through dropshipping</p>
+            </div>
         </div>
-    </body>
-    </html>
-    
+
+        <!-- Footer -->
+        <footer class="my-10 text-gray-400 text-sm animate-fadeIn delay-700 opacity-100">
+            © 2025 Dropshipping Fair. All rights reserved.
+        </footer>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="z-50 hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center overflow-y-auto animate-fadeIn" onclick="closeModal()">
+        <div class="bg-gray-900 p-6 rounded-lg shadow-lg w-96 max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation();">
+            <h2 class="text-2xl font-bold mb-4 text-center">Register</h2>
+            
+            <label class="block mb-2">Email</label>
+            <input id="email" type="email" class="w-full p-2 rounded bg-gray-800 text-white mb-4 focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Enter your email" required aria-label="Email">
+            
+            <label class="block mb-2">Password</label>
+            <input id="password" type="password" class="w-full p-2 rounded bg-gray-800 text-white mb-4 focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Enter your password" required aria-label="Password">
+            
+            <button onclick="saveUser()" class="bg-purple-600 hover:bg-purple-700 w-full py-2 rounded text-white font-bold">Submit</button>
+            <button onclick="closeModal()" class="bg-gray-700 hover:bg-gray-800 w-full py-2 mt-2 rounded text-white font-bold">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Tailwind Custom Styles -->
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+
+        .card {
+            background: linear-gradient(to bottom, #222, #111);
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .card h2 {
+            margin-bottom: 10px;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .card:hover h2 {
+            color: #ffcc00;
+        }
+
+        /* Font Style for Headings */
+        .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+
+    <!-- JavaScript to Handle Modal and Save User Data -->
+    <script>
+        function openModal() {
+            document.getElementById("loginModal").classList.remove("hidden");
+        }
+
+        function closeModal() {
+            document.getElementById("loginModal").classList.add("hidden");
+        }
+
+        function saveUser() {
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            // Basic email validation
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email.");
+                return;
+            }
+
+            if (email === "" || password === "") {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            // Save to local storage (for demo, consider server-side storage in production)
+            localStorage.setItem("userEmail", email);
+            localStorage.setItem("userPassword", password);
+
+            alert("Registration Successful!");
+            closeModal();
+        }
+    </script>
 
 </body>
 </html>
